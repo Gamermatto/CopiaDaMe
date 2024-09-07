@@ -1,0 +1,33 @@
+name: Test and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # Sostituisci con la versione di Node.js necessaria
+
+    - name: Install dependencies
+      run: npm install  # O il comando per installare le dipendenze del tuo progetto
+
+    - name: Run tests
+      run: npm test  # O il comando per eseguire i test del tuo progetto
+
+    - name: Build and deploy
+      run: |
+        npm run build  # O il comando per costruire il tuo progetto
+        # Aggiungi qui i comandi per distribuire il sito se necessario

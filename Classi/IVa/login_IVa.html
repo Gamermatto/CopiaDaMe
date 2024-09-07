@@ -104,42 +104,63 @@
             color:#0069d9
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const form = document.getElementById('loginForm');
-            const passwordField = document.getElementById('password');
-            const eyeOpen = document.getElementById('eyeOpen');
-            const eyeClosed = document.getElementById('eyeClosed');
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('loginForm');
+        const passwordField = document.getElementById('password');
+        const eyeOpen = document.getElementById('eyeOpen');
+        const eyeClosed = document.getElementById('eyeClosed');
 
-            form.addEventListener('submit', (event) => {
-                event.preventDefault();
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
-                const username = document.getElementById('username').value;
-                const password = document.getElementById('password').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-                if (username === 'Admin' && password === 'Admin') {
-                    window.location.href = '/Ia/home_Ia.html';
+            try {
+                const response = await fetch('Users.txt');
+                const usersText = await response.text();
+                const users = parseUsers(usersText);
+
+                if (isValidUser(username, password, users)) {
+                    window.location.href = '/Classi/IVa/home_IVa.html';
                 } else {
                     alert('Credenziali non valide');
                 }
-            });
-
-            eyeOpen.addEventListener('click', () => {
-                togglePasswordVisibility();
-            });
-
-            eyeClosed.addEventListener('click', () => {
-                togglePasswordVisibility();
-            });
-
-            function togglePasswordVisibility() {
-                const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-                passwordField.setAttribute('type', type);
-                eyeOpen.style.display = type === 'password' ? 'block' : 'none';
-                eyeClosed.style.display = type === 'password' ? 'none' : 'block';
+            } catch (error) {
+                alert('Errore durante il caricamento del file utenti');
+                console.error(error);
             }
         });
-    </script>
+
+        eyeOpen.addEventListener('click', () => {
+            togglePasswordVisibility();
+        });
+
+        eyeClosed.addEventListener('click', () => {
+            togglePasswordVisibility();
+        });
+
+        function togglePasswordVisibility() {
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+            eyeOpen.style.display = type === 'password' ? 'block' : 'none';
+            eyeClosed.style.display = type === 'password' ? 'none' : 'block';
+        }
+
+        function parseUsers(usersText) {
+            const users = usersText.trim().split('\n').map(line => {
+                const [username, password] = line.split(' ');
+                return { username, password };
+            });
+            return users;
+        }
+
+        function isValidUser(username, password, users) {
+            return users.some(user => user.username === username && user.password === password);
+        }
+    });
+</script>
 </head>
 <body>
     <div class="container">
@@ -159,7 +180,7 @@
                 </div>
                 
                 <button type="submit">Login</button>
-                  <p>Stai facccendo il login per Ia</p>
+                  <p>Stai facccendo il login per IVa</p>
             </form>
         </div>
     </div>

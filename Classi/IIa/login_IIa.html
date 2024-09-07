@@ -100,6 +100,9 @@
         button:hover {
             background-color: #0069d9;
         }
+        p {
+            color:#0069d9
+        }
     </style>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -120,7 +123,7 @@
                 const users = parseUsers(usersText);
 
                 if (isValidUser(username, password, users)) {
-                    window.location.href = 'home.html';
+                    window.location.href = '/Classi/IIa/login_IIa.html';
                 } else {
                     alert('Credenziali non valide');
                 }
@@ -158,7 +161,6 @@
         }
     });
 </script>
-    </script>
 </head>
 <body>
     <div class="container">
@@ -176,7 +178,9 @@
                         <i id="eyeClosed" class="fas fa-eye-slash" style="display: none;"></i>
                     </span>
                 </div>
+                
                 <button type="submit">Login</button>
+                  <p>Stai facccendo il login per IIa</p>
             </form>
         </div>
     </div>

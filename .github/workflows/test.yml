@@ -3,31 +3,29 @@ name: Test and Deploy
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - main  # O qualunque altro branch su cui esegui il job
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # O un altro ambiente come macos-latest o windows-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'  # Sostituisci con la versione di Node.js necessaria
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
-    - name: Install dependencies
-      run: npm install  # O il comando per installare le dipendenze del tuo progetto
+      - name: Install dependencies
+        run: npm install
 
-    - name: Run tests
-      run: npm test  # O il comando per eseguire i test del tuo progetto
+      - name: Run tests
+        run: npm test  # Comando per eseguire i test
 
-    - name: Build and deploy
-      run: |
-        npm run build  # O il comando per costruire il tuo progetto
-        # Aggiungi qui i comandi per distribuire il sito se necessario
+      - name: Build project
+        run: npm run build  # Comando per la build
+
+      - name: Deploy (opzionale)
+        run: ./deploy.sh  # Script di deploy personalizzato

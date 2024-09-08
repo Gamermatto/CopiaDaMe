@@ -118,12 +118,12 @@
             const password = document.getElementById('password').value;
 
             try {
-                const response = await fetch('/Classsi/IIa/Usеrs.txt');
+                const response = await fetch('/Classi/Ia/Password/Users.txt');
                 const usersText = await response.text();
                 const users = parseUsers(usersText);
 
                 if (isValidUser(username, password, users)) {
-                    window.location.href = '/Classi/IIa/home_IIa.html';
+                    window.location.href = '/Classi/Ia/home_Ia.html';
                 } else {
                     alert('Credenziali non valide');
                 }

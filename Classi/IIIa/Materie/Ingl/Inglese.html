@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<div class="logo">Inglese</div>
+
+
+<body>
+<ul>
+  <li><a href="/copiadame.github.io/Classi/IIIa/home_IIIa.html">Torna alla Home</a></li>
+</ul>
+    <div class="container">
+        <div class="immages">
+            <img src="/Immages/tasks.png" alt="TasksImage">
+        </div>
+        <div class="immages">
+            <img src="/Immages/tasks.png" alt="AnotherImage">
+        </div>
+        <div class="immages">
+            <img src="/Immages/tasks.png" alt="YetAnotherImage">
+        </div>
+        <!-- Aggiungi altre immagini qui -->
+    </div>
+</body>
+</html>
+<style>
+ul {
+    position: absolute;
+    top: 10px; /* Sposta il contenuto verso l'alto */
+    right: 0; /* Allinea il testo a destra */
+    list-style-type: none; /* Rimuove i punti elenco */
+    padding: 0; /* Rimuove il padding predefinito */
+    margin: 0; /* Rimuove il margine predefinito */
+}
+
+a {
+    width: 10px;
+    color: white !important;
+    text-decoration: none;
+}
+
+body {
+    background-color: black;
+}
+    /* Stili generali per il container */
+.container {
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 90%; /* Imposta una larghezza massima del 90% della viewport */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Cambia la direzione dei figli del container in colonna */
+    align-items: center;
+    height: auto; /* Adatta l'altezza del container */
+    box-shadow: 0 0 15px 4px rgba(0, 123, 255, 0.8); /* Effetto neon blu */
+    overflow-y: auto; /* Permette lo scorrimento verticale */
+}
+
+/* Media query per schermi più grandi */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 80%; /* Aumenta la larghezza del container sui dispositivi desktop */
+        height: auto; /* Adatta l'altezza del container */
+    }
+}
+
+/* Media query per schermi più piccoli */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%; /* Riduce la larghezza del container sui dispositivi mobili */
+        padding: 10px; /* Riduce il padding sui dispositivi mobili */
+    }
+}
+
+/* Stili per le immagini */
+.immages {
+    width: 100%; /* Assicura che le immagini occupino tutta la larghezza del container */
+    margin-bottom: 20px; /* Aggiunge spazio tra le immagini */
+}
+
+.immages img {
+    width: 100%; /* Mantiene l'immagine all'interno del contenitore */
+    height: auto; /* Mantiene le proporzioni dell'immagine */
+    object-fit: contain; /* Adatta l'immagine senza deformarla */
+    border-radius: 10px;
+  
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: aliceblue;
+}
+</style>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
         <div class="logo">Home</div>
@@ -17,11 +19,11 @@
                     <ul>
                         <li><a href="/copiadame/Classi/Ia/Materie/Geo/Geografia.html">Geografia</a></li>
                         <li><a href="/copiadame/Classi/Ia/Materie/Ingl/Inglese.html">Inglese</a></li>
-                        <li><a href="/copiadame.github.io/Classi/Ia/Materie/Mate/Matematica.html">Matematica</a></li>
+                        <li><a href="/Classi/Ia/Materie/Mate/Matematica.html">Matematica</a></li>
                         <li><a href="/copiadame/Classi/Ia/Materie/Tede/Tedesco.html">Tedesco</a></li>
                     </ul>
                 </li>
-                <li><a href="#">About</a></li>                
+                <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
@@ -32,8 +34,8 @@
             <p></p>
             <h1>CopiaDaMe i <span>Compiti</span></h1>
             <p>Non vuoi fare i compiti?</p>
-               Bene! Clicca class e seleziona la tua classe e rimetti nome utente e password!</p>
-               <small>Ricorda: Se non invii le tue soluzioni non troverai le soluzioni degli altri<small>
+            Bene! Clicca class e seleziona la tua classe e rimetti nome utente e password!</p>
+            <small>Ricorda: Se non invii le tue soluzioni non troverai le soluzioni degli altri<small>
         </div>
         <div class="image">
             <img src="Immages/tasks.png" alt="Tasks Image">
@@ -41,7 +43,7 @@
     </section>
 
     <script>
-        document.getElementById('classLink').addEventListener('click', function(e) {
+        document.getElementById('classLink').addEventListener('click', function (e) {
             e.preventDefault();
             var submenu = document.getElementById('submenu');
             if (submenu.style.display === 'none' || submenu.style.display === '') {
@@ -52,6 +54,7 @@
         });
     </script>
 </body>
+
 </html>
 
 <style>
@@ -101,7 +104,8 @@
         align-items: center;
         padding: 50px;
         background: linear-gradient(to right, #000000, #00000000 60%, #000000);
-        box-shadow: 0 0 15px 4px rgba(0, 123, 255, 0.8); /* Effetto neon blu */
+        box-shadow: 0 0 15px 4px rgba(0, 123, 255, 0.8);
+        /* Effetto neon blu */
         border-radius: 10px;
     }
 

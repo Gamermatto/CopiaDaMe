@@ -1,1 +1,179 @@
-<p>Sei nella IIa</p>
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">Home</div>
+        <nav>
+            <ul id="menu">
+                <li><a href="#" id="classLink">Class</a></li>
+                <li id="submenu" style="display: none;">
+                    <!-- Qui potresti aggiungere voci del sottomenu -->
+                    <ul>
+                        <li><a href="/copiadame.github.io/Classi/IIa/Materie/Geo/Geografia.html">Geografia</a></li>
+                        <li><a href="/copiadame.github.io/Classi/IIa/Materie/Ingl/Inglese.html">Inglese</a></li>
+                        <li><a href="/copiadame.github.io/Classi/IIa/Materie/Mate/Matematica.html">Matematica</a></li>
+                        <li><a href="/copiadame.github.io/Classi/IIa/Materie/Tede/Tedesco.html">Tedesco</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="content">
+            <p></p>
+            <h1>CopiaDaMe i <span>Compiti</span></h1>
+            <p>Non vuoi fare i compiti?</p>
+            Bene! Clicca class e seleziona la tua classe e rimetti nome utente e password!</p>
+            <small>Ricorda: Se non invii le tue soluzioni non troverai le soluzioni degli altri<small>
+        </div>
+        <div class="image">
+            <img src="Immages/tasks.png" alt="Tasks Image">
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('classLink').addEventListener('click', function (e) {
+            e.preventDefault();
+            var submenu = document.getElementById('submenu');
+            if (submenu.style.display === 'none' || submenu.style.display === '') {
+                submenu.style.display = 'block';
+            } else {
+                submenu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+    }
+
+    nav ul li {
+        margin-left: 20px;
+    }
+
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px;
+        background: linear-gradient(to right, #000000, #00000000 60%, #000000);
+        box-shadow: 0 0 15px 4px rgba(0, 123, 255, 0.8);
+        /* Effetto neon blu */
+        border-radius: 10px;
+    }
+
+    .hero .content {
+        max-width: 50%;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+        font-size: 60px;
+        font-weight: bold;
+        color: #fff601;
+    }
+
+    .hero p {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .hero .buttons {
+        margin-top: 20px;
+    }
+
+    .hero .btn {
+        display: inline-block;
+        background-color: #024d00;
+        color: #fff;
+        padding: 10px 20px;
+        margin-right: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .hero .btn:hover {
+        background-color: #037b00;
+    }
+
+    .hero .image img {
+        width: 500px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .hero {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .hero .content {
+            max-width: 100%;
+        }
+
+        .hero .image img {
+            width: 300px;
+            margin-top: 20px;
+        }
+
+        nav ul {
+            flex-direction: column;
+        }
+
+        nav ul li {
+            margin-left: 0;
+            margin-bottom: 10px;
+        }
+    }
+</style>

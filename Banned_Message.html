@@ -1,62 +1,23 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Banned</title>
 </head>
-
 <body>
-    <header>
-        <div class="logo">Home</div>
-        <nav>
-            <ul id="menu">
-                <li><a href="#" id="classLink">Class</a></li>
-                <li id="submenu" style="display: none;">
-                    <!-- Qui potresti aggiungere voci del sottomenu -->
-                    <ul>
-                        <li><a href="/copiadame.github.io/Classi/Ia/Materie/Geo/Geografia.html">Geografia</a></li>
-                        <li><a href="/copiadame.github.io/Classi/Ia/Materie/Ita/Italiano.html">Italiano</a></li>
-                        <li><a href="/copiadame.github.io/Classi/Ia/Materie/Mate/Matematica.html">Matematica</a></li>
-                        <li><a href="/copiadame.github.io/Classi/Ia/Materie/Sto/Storia.html">Storia</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">About</a></li>
-                <li><a href="/copiadame.github.io/Invia_Soluzione/Invia_Soluzione.html">Invia Soluzione</a></li>
-            </ul>
-        </nav>
-    </header>
-
     <section class="hero">
         <div class="content">
             <p></p>
-            <h1>CopiaDaMe i <span>Compiti</span></h1>
-            <p>Non vuoi fare i compiti?</p>
-            Bene! Clicca class e seleziona la tua classe e rimetti nome utente e password!</p>
-            <small>Ricorda: Se non invii le tue soluzioni non troverai le soluzioni degli altri<small>
-        </div>
+            <h1><span>Bannato da CopiaDaMe</span></h1>
+            <p><h2>Sei stato bannato</h2></p>
+               Come sei arrivato fin qui? Sembra che tu abbia fatto casini, per ora resterai bannato magari verrai sbannato, Buona Giornata</p></div>
         <div class="image">
-            <img src="/copiadame.github.io/Immages/CopiaDaMe.png" alt="CopiaDaMe">
+            <img src="Immages/Banned.png" alt="Banned">
         </div>
     </section>
-
-    <script>
-        document.getElementById('classLink').addEventListener('click', function (e) {
-            e.preventDefault();
-            var submenu = document.getElementById('submenu');
-            if (submenu.style.display === 'none' || submenu.style.display === '') {
-                submenu.style.display = 'block';
-            } else {
-                submenu.style.display = 'none';
-            }
-        });
-    </script>
 </body>
-
 </html>
-
 <style>
     * {
         margin: 0;
@@ -79,9 +40,11 @@
         padding: 20px;
     }
 
-    .logo {
+    .Bannato {
         font-size: 24px;
         font-weight: bold;
+        color: #fff;
+        padding-top: 1px;
     }
 
     nav ul {
@@ -104,8 +67,7 @@
         align-items: center;
         padding: 50px;
         background: linear-gradient(to right, #000000, #00000000 60%, #000000);
-        box-shadow: 0 0 15px 4px rgba(0, 123, 255, 0.8);
-        /* Effetto neon blu */
+        box-shadow: 0 0 15px 4px rgba(255, 0, 0, 0.8); /* Effetto neon rosso */
         border-radius: 10px;
     }
 
@@ -121,7 +83,7 @@
     .hero h1 span {
         font-size: 60px;
         font-weight: bold;
-        color: #fff601;
+        color: #ff0101;
     }
 
     .hero p {

@@ -116,60 +116,79 @@
     </style>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const form = document.getElementById('loginForm');
-        const passwordField = document.getElementById('password');
-        const eyeOpen = document.getElementById('eyeOpen');
-        const eyeClosed = document.getElementById('eyeClosed');
+    const form = document.getElementById('loginForm');
+    const passwordField = document.getElementById('password');
+    const eyeOpen = document.getElementById('eyeOpen');
+    const eyeClosed = document.getElementById('eyeClosed');
 
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
 
-            try {
-                const response = await fetch('/copiadame.github.io/Password/Users.txt');
-                const usersText = await response.text();
-                const users = parseUsers(usersText);
+        try {
+            // Verifica se l'utente è bannato
+            const bannedResponse = await fetch('/copiadame.github.io/Utenti/Banned_Users.txt');
+            const bannedText = await bannedResponse.text();
+            const bannedUsers = parseBannedUsers(bannedText);
 
-                if (isValidUser(username, password, users)) {
-                    window.location.href = '/copiadame.github.io/home.html';
-                } else {
-                    alert('Credenziali non valide');
-                }
-            } catch (error) {
-                alert('Errore durante il caricamento del file utenti');
-                console.error(error);
+            if (isBannedUser(username, bannedUsers)) {
+                window.location.href = '/copiadame.github.io/Banned_Message.html';
+                return; // Stoppa qui il processo se l'utente è bannato
             }
-        });
 
-        eyeOpen.addEventListener('click', () => {
-            togglePasswordVisibility();
-        });
+            // Se non è bannato, verifica l'utente
+            const response = await fetch('/copiadame.github.io/Utenti/Users.txt');
+            const usersText = await response.text();
+            const users = parseUsers(usersText);
 
-        eyeClosed.addEventListener('click', () => {
-            togglePasswordVisibility();
-        });
-
-        function togglePasswordVisibility() {
-            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordField.setAttribute('type', type);
-            eyeOpen.style.display = type === 'password' ? 'block' : 'none';
-            eyeClosed.style.display = type === 'password' ? 'none' : 'block';
-        }
-
-        function parseUsers(usersText) {
-            const users = usersText.trim().split('\n').map(line => {
-                const [username, password] = line.split(' ');
-                return { username, password };
-            });
-            return users;
-        }
-
-        function isValidUser(username, password, users) {
-            return users.some(user => user.username === username && user.password === password);
+            if (isValidUser(username, password, users)) {
+                window.location.href = '/copiadame.github.io/home.html';
+            } else {
+                alert('Credenziali non valide');
+            }
+        } catch (error) {
+            alert('Errore durante il caricamento del file utenti');
+            console.error(error);
         }
     });
+
+    eyeOpen.addEventListener('click', () => {
+        togglePasswordVisibility();
+    });
+
+    eyeClosed.addEventListener('click', () => {
+        togglePasswordVisibility();
+    });
+
+    function togglePasswordVisibility() {
+        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordField.setAttribute('type', type);
+        eyeOpen.style.display = type === 'password' ? 'block' : 'none';
+        eyeClosed.style.display = type === 'password' ? 'none' : 'block';
+    }
+
+    function parseUsers(usersText) {
+        const users = usersText.trim().split('\n').map(line => {
+            const [username, password] = line.split(' ');
+            return { username, password };
+        });
+        return users;
+    }
+
+    function isValidUser(username, password, users) {
+        return users.some(user => user.username === username && user.password === password);
+    }
+
+    function parseBannedUsers(bannedText) {
+        return bannedText.trim().split('\n'); // Restituisce un array di nomi utenti bannati
+    }
+
+    function isBannedUser(username, bannedUsers) {
+        return bannedUsers.includes(username); // Verifica se l'utente è nella lista dei bannati
+    }
+});
 </script>
     </script>
 </head>

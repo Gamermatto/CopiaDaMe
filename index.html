@@ -129,12 +129,13 @@
 
         try {
             // Verifica se l'utente è bannato
-            const bannedResponse = await fetch('/copiadame.github.io/Utenti/Banned_Users.txt');
+            const bannedResponse = await fetch('/copiadame.github.io/Utenti/banned.txt');
             const bannedText = await bannedResponse.text();
             const bannedUsers = parseBannedUsers(bannedText);
 
             if (isBannedUser(username, bannedUsers)) {
-                window.location.href = '/copiadame.github.io/Banned_Message.html';
+                alert("Sei bannato!");
+                window.location.href = '/copiadame.github.io/errore_bannato.html'; // Reindirizza alla pagina di errore
                 return; // Stoppa qui il processo se l'utente è bannato
             }
 
@@ -182,13 +183,15 @@
     }
 
     function parseBannedUsers(bannedText) {
-        return bannedText.trim().split('\n'); // Restituisce un array di nomi utenti bannati
+        // Assicuriamoci che ogni nome utente bannato sia trattato correttamente
+        return bannedText.trim().split('\n').map(user => user.trim());
     }
 
     function isBannedUser(username, bannedUsers) {
-        return bannedUsers.includes(username); // Verifica se l'utente è nella lista dei bannati
+        return bannedUsers.includes(username.trim()); // Verifica se l'utente è nella lista dei bannati
     }
 });
+
 </script>
     </script>
 </head>

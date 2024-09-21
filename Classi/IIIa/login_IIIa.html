@@ -118,12 +118,12 @@
             const password = document.getElementById('password').value;
 
             try {
-                const response = await fetch('/copiadame.github.io/Classi/IIIa/Utenti/Users.txt');
+                const response = await fetch('/CopiaDaMe/Classi/IIIa/Utenti/Users.txt');
                 const usersText = await response.text();
                 const users = parseUsers(usersText);
 
                 if (isValidUser(username, password, users)) {
-                    window.location.href = '/copiadame.github.io/Classi/IIIa/home_IIIa.html';
+                    window.location.href = '/CopiaDaMe/Classi/IIIa/home_IIIa.html';
                 } else {
                     alert('Credenziali non valide');
                 }

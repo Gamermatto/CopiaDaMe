@@ -118,7 +118,7 @@
             const password = document.getElementById('password').value;
 
             try {
-                const response = await fetch('/copiadame.github.io/Classi/IIa/Password/Users.txt');
+                const response = await fetch('/copiadame.github.io/Classi/IIa/Utenti/Users.txt');
                 const usersText = await response.text();
                 const users = parseUsers(usersText);
 

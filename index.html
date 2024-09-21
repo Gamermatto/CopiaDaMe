@@ -129,22 +129,22 @@
 
             try {
                 // Controllo utenti bannati
-                const bannedResponse = await fetch('/copiadame.github.io/Utenti/Banned_Users.txt');
+                const bannedResponse = await fetch('/CopiaDaMe/Utenti/Banned_Users.txt');
                 const bannedUsersText = await bannedResponse.text();
                 const bannedUsers = parseUsers(bannedUsersText);
 
                 if (isBannedUser(username, bannedUsers)) {
-                    window.location.href = '/copiadame.github.io/Banned_Message.html';
+                    window.location.href = '/CopiaDaMe/Banned_Message.html';
                     return;
                 }
 
                 // Controllo utenti validi
-                const response = await fetch('/copiadame.github.io/Utenti/Users.txt');
+                const response = await fetch('/CopiaDaMe/Utenti/Users.txt');
                 const usersText = await response.text();
                 const users = parseUsers(usersText);
 
                 if (isValidUser(username, password, users)) {
-                    window.location.href = '/copiadame.github.io/home.html';
+                    window.location.href = '/CopiaDaMe/home.html';
                 } else {
                     alert('Credenziali non valide');
                 }
@@ -205,7 +205,7 @@
                 </div>
                 <button type="submit">Login</button>
                 <!-- <p> Richiedi l'accesso</p> 
-                    <li><a href="/copiadame.github.io/E-mail/Richiedi_Accesso.html">Qui</a></li> -->
+                    <li><a href="/CopiaDaMe/E-mail/Richiedi_Accesso.html">Qui</a></li> -->
             </form>
         </div>
     </div>

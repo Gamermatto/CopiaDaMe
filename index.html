@@ -139,7 +139,7 @@
                 }
 
                 // Controllo utenti validi
-                const response = await fetch('https:/gamermatto.github.io/CopiaDaMe/Utenti/Users.txt');
+                const response = await fetch('/CopiaDaMe/Utenti/Users.txt');
                 const usersText = await response.text();
                 const users = parseUsers(usersText);
 
@@ -204,8 +204,8 @@
                     </span>
                 </div>
                 <button type="submit">Login</button>
-                <p>Vuoi registrarti? Clicca</p> 
-                    <li><a href="/CopiaDaMe/E-mail/Richiedi_Accesso.html">Qui</a></li>
+                <!-- <p> Richiedi l'accesso</p> 
+                    <li><a href="/CopiaDaMe/E-mail/Richiedi_Accesso.html">Qui</a></li> -->
             </form>
         </div>
     </div>
